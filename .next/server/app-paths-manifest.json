@@ -1,0 +1,8 @@
+{
+  "/(traveller)/page": "app/(traveller)/page.js",
+  "/(traveller)/planner/page": "app/(traveller)/planner/page.js",
+  "/(traveller)/trips/page": "app/(traveller)/trips/page.js",
+  "/(traveller)/stories/page": "app/(traveller)/stories/page.js",
+  "/(traveller)/partner/page": "app/(traveller)/partner/page.js",
+  "/(traveller)/login/page": "app/(traveller)/login/page.js"
+}

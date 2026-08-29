@@ -1,0 +1,20 @@
+/** Query keys for the Tourist Guide portal. */
+export const queryKeys = {
+  session: ['session'] as const,
+  dashboard: ['guide', 'dashboard'] as const,
+  analytics: ['guide', 'analytics'] as const,
+  profile: ['guide', 'profile'] as const,
+  earnings: ['guide', 'earnings'] as const,
+  places: (params: Record<string, unknown>) => ['guide', 'places', params] as const,
+  place: (id: string) => ['guide', 'places', id] as const,
+  experiences: (params: Record<string, unknown>) => ['guide', 'experiences', params] as const,
+  experience: (id: string) => ['guide', 'experiences', id] as const,
+  slots: (params: Record<string, unknown>) => ['guide', 'slots', params] as const,
+  bookings: (params: Record<string, unknown>) => ['guide', 'bookings', params] as const,
+  booking: (id: string) => ['guide', 'bookings', id] as const,
+  reviews: (params: Record<string, unknown>) => ['guide', 'reviews', params] as const,
+  stories: (params: Record<string, unknown>) => ['guide', 'stories', params] as const,
+  story: (id: string) => ['guide', 'stories', id] as const,
+  notifications: (params: Record<string, unknown>) => ['notifications', params] as const,
+  categories: ['categories'] as const,
+};

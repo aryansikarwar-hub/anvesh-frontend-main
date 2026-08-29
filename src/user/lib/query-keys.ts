@@ -1,0 +1,32 @@
+import { type SearchQuery } from '@/lib/validation';
+
+/** Central query-key registry so cache invalidation is never guesswork. */
+export const queryKeys = {
+  session: ['session'] as const,
+  feed: (params: Record<string, unknown>) => ['discovery', 'feed', params] as const,
+  hiddenGems: (params: Record<string, unknown>) => ['discovery', 'hidden-gems', params] as const,
+  search: (params: Partial<SearchQuery>) => ['discovery', 'search', params] as const,
+  nearby: (params: Record<string, unknown>) => ['discovery', 'nearby', params] as const,
+  map: (params: Record<string, unknown>) => ['discovery', 'map', params] as const,
+  categories: ['categories'] as const,
+  destinations: ['destinations'] as const,
+  destination: (slug: string) => ['destinations', slug] as const,
+  place: (slug: string) => ['places', slug] as const,
+  experience: (slug: string) => ['experiences', slug] as const,
+  experiences: (params: Record<string, unknown>) => ['experiences', params] as const,
+  availability: (experienceId: string) => ['availability', experienceId] as const,
+  guide: (slug: string) => ['guides', slug] as const,
+  reviews: (params: Record<string, unknown>) => ['reviews', params] as const,
+  myReviews: (page: number) => ['reviews', 'mine', page] as const,
+  saved: (params: Record<string, unknown>) => ['saved', params] as const,
+  collections: ['collections'] as const,
+  trips: (params: Record<string, unknown>) => ['trips', params] as const,
+  trip: (id: string) => ['trips', id] as const,
+  bookings: (params: Record<string, unknown>) => ['bookings', params] as const,
+  booking: (id: string) => ['bookings', id] as const,
+  payment: (bookingId: string) => ['payments', bookingId] as const,
+  notifications: (params: Record<string, unknown>) => ['notifications', params] as const,
+  stories: (params: Record<string, unknown>) => ['stories', params] as const,
+  story: (slug: string) => ['stories', slug] as const,
+  aiStatus: ['ai', 'status'] as const,
+};

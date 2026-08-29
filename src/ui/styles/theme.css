@@ -1,0 +1,323 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+ * Anvesh design tokens — Raahi skin.
+ *
+ * Warm cream paper, deep charcoal-brown ink, a forest-green primary (ported
+ * from Raahi's "laterite" slot — every button, link and match badge in the
+ * app already keys off --color-laterite-*, so repointing this one scale is
+ * what re-skins the whole product) plus a terracotta "ghat" accent for
+ * anything that means "local" and a warm gold for ratings.
+ *
+ * The token NAMES are load-bearing — every screen references them — so a
+ * re-skin means changing values here, not hunting through components. A
+ * second, Raahi-native token set (background/foreground/primary/card/…,
+ * cream/clay/gold/forest-deep, radii, shadows, animations, utilities) is
+ * defined alongside it so pages ported verbatim from Raahi's UI compile and
+ * render with the exact same look.
+ */
+@theme {
+  /* --- surfaces ---------------------------------------------------------- */
+  --color-paper: #f8f5ee;
+  --color-paper-raised: #fdfbf6;
+  --color-paper-sunk: #eee8d9;
+  --color-paper-deep: #e6dfcb;
+
+  /* --- type -------------------------------------------------------------- */
+  --color-ink: #362f29;
+  --color-ink-soft: #55493f;
+  --color-ink-muted: #7c7267;
+  --color-ink-faint: #a89d8f;
+  --color-ink-invert: #ffffff;
+
+  /* --- lines --------------------------------------------------------------
+   */
+  --color-line: #ded7c4;
+  --color-line-strong: #cbc0a8;
+
+  /* --- laterite: the one dominant accent — Raahi's forest green ---------- */
+  --color-laterite-50: #eef5f0;
+  --color-laterite-100: #d7e8db;
+  --color-laterite-200: #b0d0ba;
+  --color-laterite-300: #86b494;
+  --color-laterite-400: #4f8768;
+  --color-laterite-500: #2f6b4b;
+  --color-laterite-600: #255839;
+  --color-laterite-700: #1c422b;
+
+  /* --- ghat: "local", "quiet", "verified" — Raahi's clay terracotta ------ */
+  --color-ghat-50: #f8f0e8;
+  --color-ghat-100: #ecd9c4;
+  --color-ghat-300: #cd9a6c;
+  --color-ghat-500: #b06a3e;
+  --color-ghat-600: #8f5330;
+  --color-ghat-700: #6e3f26;
+
+  /* --- gold: ratings ----------------------------------------------------- */
+  --color-gold-50: #fbf3e2;
+  --color-gold-300: #e8c988;
+  --color-gold-500: #d2a24c;
+  --color-gold-700: #96702c;
+
+  --color-danger-50: #fbeae7;
+  --color-danger-500: #d93d2b;
+  --color-danger-700: #9c2a1d;
+
+  --color-success-50: #eef5f0;
+  --color-success-500: #2f6b4b;
+  --color-success-700: #1c422b;
+
+  /* --- type families ------------------------------------------------------
+   * Raahi's warm, editorial sans. Headings and body share it — the
+   * distinction is weight and tracking, which reads as modern rather than
+   * decorative. */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* --- shape --------------------------------------------------------------
+   * Generous radii and shadow-defined edges: cards float on the page instead
+   * of being boxed in by borders. */
+  --radius-card: 24px;
+  --radius-control: 14px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 1px 2px rgb(54 47 41 / 0.05), 0 10px 30px -12px rgb(54 47 41 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(36 64 47 / 0.1), 0 24px 48px -16px rgb(36 64 47 / 0.32);
+  --shadow-inset: inset 0 0 0 1px rgb(54 47 41 / 0.06);
+
+  /* ======================================================================
+   * Raahi-native tokens — same palette, shadcn/ui + ported-page vocabulary.
+   * ==================================================================== */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-paper-raised);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-paper-raised);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-laterite-500);
+  --color-primary-foreground: #faf7ef;
+  --color-secondary: var(--color-paper-deep);
+  --color-secondary-foreground: var(--color-ink-soft);
+  --color-muted: var(--color-paper-sunk);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-accent: #dce6c9;
+  --color-accent-foreground: #2c5340;
+  --color-destructive: var(--color-danger-500);
+  --color-destructive-foreground: #faf7ef;
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-laterite-500);
+
+  --color-cream: #faf7ef;
+  --color-clay: var(--color-ghat-500);
+  --color-clay-foreground: #faf7ef;
+  --color-gold: var(--color-gold-500);
+  --color-forest-deep: #24402f;
+  --color-forest-mist: #dee8d8;
+
+  --color-chart-1: var(--color-laterite-500);
+  --color-chart-2: var(--color-ghat-500);
+  --color-chart-3: var(--color-gold-500);
+  --color-chart-4: #4a7f99;
+  --color-chart-5: #b5673a;
+
+  --color-sidebar: var(--color-paper);
+  --color-sidebar-foreground: var(--color-ink);
+  --color-sidebar-primary: var(--color-laterite-500);
+  --color-sidebar-primary-foreground: #faf7ef;
+  --color-sidebar-accent: var(--color-paper-deep);
+  --color-sidebar-accent-foreground: var(--color-ink-soft);
+  --color-sidebar-border: var(--color-line);
+  --color-sidebar-ring: var(--color-laterite-500);
+
+  --radius-sm: 10px;
+  --radius-md: 13px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --radius-3xl: 36px;
+  --radius-4xl: 44px;
+
+  --shadow-card: 0 1px 3px rgb(54 47 41 / 0.06), 0 14px 34px -14px rgb(54 47 41 / 0.16);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-ping-soft: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-typing: typing 1.3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ping-soft {
+  0% { transform: scale(1); opacity: 0.55; }
+  75%, 100% { transform: scale(2.1); opacity: 0; }
+}
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'kern', 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Headings inherit their colour rather than pinning it, so a heading laid
+     over a photograph or a coloured band picks up the light text of its
+     container instead of staying charcoal. The body sets ink, so the default
+     everywhere else is unchanged. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.03em;
+  }
+
+  /* Focus is always visible: this is a keyboard-navigable product. */
+  :focus-visible {
+    outline: 2px solid var(--color-laterite-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-laterite-100);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* A barely-there paper tooth, so large flat areas do not read as pure white. */
+  .anvesh-grain {
+    background-image: radial-gradient(rgb(54 47 41 / 0.028) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .anvesh-hairline {
+    box-shadow: inset 0 -1px 0 var(--color-line);
+  }
+
+  /* Legibility for text laid over a photograph or a cover gradient. */
+  .anvesh-scrim {
+    background-image: linear-gradient(
+      to top,
+      rgb(24 30 22 / 0.82) 0%,
+      rgb(24 30 22 / 0.45) 38%,
+      rgb(24 30 22 / 0.06) 72%,
+      transparent 100%
+    );
+  }
+
+  .anvesh-scrim-soft {
+    background-image: linear-gradient(
+      to top,
+      rgb(24 30 22 / 0.6) 0%,
+      rgb(24 30 22 / 0.12) 55%,
+      transparent 100%
+    );
+  }
+
+  /* Horizontal chip rows scroll on small screens without a visible bar. */
+  .anvesh-scroll-x {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .anvesh-scroll-x::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anvesh-rise {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .anvesh-rise:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* ==========================================================================
+ * Raahi utilities, ported verbatim — used by pages/components carried over
+ * from the Raahi UI kit.
+ * ======================================================================= */
+@utility glass {
+  background: color-mix(in oklab, var(--color-card) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid color-mix(in oklab, var(--color-cream) 55%, transparent);
+}
+
+@utility glass-deep {
+  background: color-mix(in oklab, var(--color-forest-deep) 62%, transparent);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid color-mix(in oklab, var(--color-cream) 18%, transparent);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility img-zoom {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  .group:hover & {
+    transform: scale(1.06);
+  }
+}
+
+@utility card-hover {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+}

@@ -1,0 +1,20 @@
+/** Query keys for the Admin portal. */
+export const queryKeys = {
+  session: ['session'] as const,
+  dashboard: ['admin', 'dashboard'] as const,
+  analytics: (params: Record<string, unknown>) => ['admin', 'analytics', params] as const,
+  aiMonitoring: ['admin', 'ai'] as const,
+  systemHealth: ['admin', 'system'] as const,
+  users: (params: Record<string, unknown>) => ['admin', 'users', params] as const,
+  user: (id: string) => ['admin', 'users', id] as const,
+  guides: (params: Record<string, unknown>) => ['admin', 'guides', params] as const,
+  places: (params: Record<string, unknown>) => ['admin', 'places', params] as const,
+  experiences: (params: Record<string, unknown>) => ['admin', 'experiences', params] as const,
+  stories: (params: Record<string, unknown>) => ['admin', 'stories', params] as const,
+  reviews: (params: Record<string, unknown>) => ['admin', 'reviews', params] as const,
+  reports: (params: Record<string, unknown>) => ['admin', 'reports', params] as const,
+  bookings: (params: Record<string, unknown>) => ['admin', 'bookings', params] as const,
+  payments: (params: Record<string, unknown>) => ['admin', 'payments', params] as const,
+  audit: (params: Record<string, unknown>) => ['admin', 'audit', params] as const,
+  recommendationConfig: ['admin', 'recommendation-config'] as const,
+};

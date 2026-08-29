@@ -1,0 +1,18 @@
+@import '../ui/styles/theme.css';
+@source '../**/*.{ts,tsx}';
+@source '../../app/**/*.{ts,tsx}';
+
+/*
+ * Typography.
+ *
+ * Anvesh ships with system font stacks so the app builds and runs with no
+ * network access to a font CDN. To use the intended faces, drop the woff2
+ * files into /public/fonts and declare them with @font-face here, keeping
+ * these two variable names — nothing else has to change.
+ */
+:root {
+  --font-anvesh-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-anvesh-display: 'Instrument Serif', 'Iowan Old Style', Georgia, Cambria,
+    'Times New Roman', serif;
+}
