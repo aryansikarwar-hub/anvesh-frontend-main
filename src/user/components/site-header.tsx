@@ -12,7 +12,6 @@ import {
   Search,
   Sparkles,
   Store,
-  User,
   X,
 } from 'lucide-react';
 import { AnveshMark, Button, cn } from '@/ui';
