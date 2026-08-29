@@ -12,7 +12,6 @@ export class UnsafeKeyError extends Error {
 
 const MAX_DEPTH = 12;
 // Control characters are exactly what this regex is meant to match.
-// eslint-disable-next-line no-control-regex
 const CONTROL_CHARS = /[\u0000-\u001f\u007f]/g;
 
 export function assertNoOperatorKeys(value: unknown, path = '$', depth = 0): void {

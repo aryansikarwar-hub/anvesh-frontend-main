@@ -338,7 +338,7 @@ export default function HomePage() {
 
           <div className="rounded-3xl glass-deep p-6 shadow-lift">
             <div className="w-fit max-w-[90%] rounded-2xl rounded-bl-sm bg-cream/10 px-4 py-3 text-sm leading-relaxed text-cream">
-              Describe what you're in the mood for, and I'll pull real places with a reason for
+              Describe what you&apos;re in the mood for, and I&apos;ll pull real places with a reason for
               each — not a link, not a guess.
             </div>
             <div className="mt-4 flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2.5 text-sm text-cream/60">
