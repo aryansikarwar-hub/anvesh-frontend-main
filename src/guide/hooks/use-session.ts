@@ -56,6 +56,26 @@ export function useLogin() {
   });
 }
 
+/**
+ * Creates a Tourist Guide account.
+ *
+ * `accountType` is the only thing that differs from traveller registration,
+ * and it is sent by this portal rather than chosen in the form: the server
+ * derives the role and the portal list from it and ignores any role the client
+ * tries to send. Registering here also creates the empty guide profile that
+ * the portal's own pages then fill in.
+ */
+export function useRegister() {
+  return useMutation({
+    mutationFn: (input: { email: string; password: string; displayName: string }) =>
+      api.post<{ user: PublicUser }>('/auth/register', {
+        ...input,
+        accountType: 'TOURIST_GUIDE',
+        acceptTerms: true,
+      }),
+  });
+}
+
 export function useLogout() {
   const clear = useSessionStore((s) => s.clear);
   const queryClient = useQueryClient();

@@ -35,7 +35,8 @@ const NAV = [
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
-const AUTH_ROUTES = ['/login', '/forgot-password', '/reset-password'];
+/** Routes that render bare, without the signed-in guide's nav around them. */
+const AUTH_ROUTES = ['/login', '/register', '/forgot-password', '/reset-password'];
 
 export function GuideShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

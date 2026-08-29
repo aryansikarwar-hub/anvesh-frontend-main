@@ -57,13 +57,13 @@ const WHAT_YOU_GET = [
 const STEPS = [
   {
     step: '1',
-    title: 'Create a traveller account',
-    body: 'Register on the main site and verify your email. That account becomes the base for your guide profile.',
+    title: 'Create a guide account',
+    body: 'Register on the guide portal and verify your email. A guide profile is created with the account.',
   },
   {
     step: '2',
-    title: 'Set up your guide profile',
-    body: 'Sign in at the guide portal and fill in your headline, languages, base city and specialities.',
+    title: 'Fill in your guide profile',
+    body: 'Sign in at the guide portal and add your headline, languages, base city and specialities.',
   },
   {
     step: '3',
@@ -89,8 +89,8 @@ export default function PartnerPage() {
           </p>
           <div className="flex flex-wrap gap-3 pt-1">
             <Button asChild size="lg" variant="onImage">
-              <Link href="/guide/login">
-                Open the guide portal
+              <Link href="/guide/register">
+                Register as a guide
                 <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
@@ -99,7 +99,7 @@ export default function PartnerPage() {
               size="lg"
               className="bg-white/12 text-white ring-1 ring-white/30 backdrop-blur-sm hover:bg-white/20"
             >
-              <Link href="/register">Create an account</Link>
+              <Link href="/guide/login">Sign in to the guide portal</Link>
             </Button>
           </div>
         </PageShell>

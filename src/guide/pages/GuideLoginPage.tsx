@@ -64,10 +64,10 @@ export default function GuideLoginPage() {
       description="A token issued here works only on this portal."
       footer={
         <>
-          Not a guide yet?{' '}
-          <a href="/register" className="text-laterite-600 underline">
-            Create an account on the traveller site
-          </a>
+          Not registered yet?{' '}
+          <Link href="/register" className="text-laterite-600 underline">
+            Create a guide account
+          </Link>
         </>
       }
     >
