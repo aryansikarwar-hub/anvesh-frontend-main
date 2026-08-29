@@ -15,6 +15,11 @@ export function buildMapStyle(): MapStyle | null {
     return `https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard/style.json?api_key=${encodeURIComponent(publicEnv.olaMapsApiKey)}`;
   }
 
+  if (publicEnv.mapsProvider === 'maptiler') {
+    if (!publicEnv.mapTilerApiKey) return null;
+    return `https://api.maptiler.com/maps/streets-v2/style.json?key=${encodeURIComponent(publicEnv.mapTilerApiKey)}`;
+  }
+
   // A minimal raster style used only when MAPS_PROVIDER is explicitly set to
   // the demo value in local development.
   const demoStyle: StyleSpecification = {
